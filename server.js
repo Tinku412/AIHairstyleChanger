@@ -7,7 +7,7 @@ const sharp = require('sharp');
 
 // Initialize Express app
 const app = express();
-let port = process.env.PORT || 3000;
+let port = ai-hairstyle-changer-eta.vercel.app || 3000;
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
