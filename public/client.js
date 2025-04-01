@@ -14,6 +14,12 @@ const errorMessage = document.getElementById('errorMessage');
 const analysisContainer = document.getElementById('analysisContainer');
 const analysisText = document.getElementById('analysisText');
 const exampleImages = document.getElementById('exampleImages');
+const browseBtn = document.getElementById('browseBtn');
+const lengthSelect = document.getElementById('lengthSelect');
+const styleSelect = document.getElementById('styleSelect');
+const colorSelect = document.getElementById('colorSelect');
+const hairstylePreview = document.getElementById('hairstylePreview');
+const resetBtn = document.getElementById('resetBtn');
 
 // Handle file upload via drag and drop
 uploadArea.addEventListener('dragover', (e) => {
@@ -43,6 +49,13 @@ fileInput.addEventListener('change', () => {
     if (fileInput.files.length) {
         handleFile(fileInput.files[0]);
     }
+});
+
+// Add event listeners for the new browse button
+browseBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    fileInput.click();
 });
 
 // Handle the selected file
@@ -86,23 +99,26 @@ tryAgainBtn.addEventListener('click', () => {
 });
 
 // Add event listeners to update the hairstyle preview
-document.querySelectorAll('#lengthSelect, #styleSelect, #colorSelect').forEach(select => {
-    select.addEventListener('change', updateHairstylePreview);
-});
+lengthSelect.addEventListener('change', updateHairstylePreview);
+styleSelect.addEventListener('change', updateHairstylePreview);
+colorSelect.addEventListener('change', updateHairstylePreview);
 
 // Function to update the hairstyle preview text
 function updateHairstylePreview() {
-    const length = document.getElementById('lengthSelect').value;
-    const style = document.getElementById('styleSelect').value;
-    const color = document.getElementById('colorSelect').value;
+    const length = lengthSelect.value;
+    const style = styleSelect.value;
+    const color = colorSelect.value;
     
-    let previewParts = [];
-    if (length) previewParts.push(length);
-    if (color) previewParts.push(color);
-    if (style) previewParts.push(style);
+    let hairstyleParts = [];
+    if (length) hairstyleParts.push(length);
+    if (color) hairstyleParts.push(color);
+    if (style) hairstyleParts.push(style);
     
-    const previewText = previewParts.length > 0 ? previewParts.join(' ') : 'Select at least one option';
-    document.getElementById('hairstylePreview').textContent = previewText;
+    if (hairstyleParts.length > 0) {
+        hairstylePreview.textContent = hairstyleParts.join(' ');
+    } else {
+        hairstylePreview.textContent = 'Select at least one option';
+    }
     
     // Enable/disable the generate button based on selection
     const hasSelection = length || style || color;
@@ -122,9 +138,9 @@ async function processImage() {
         return;
     }
     
-    const length = document.getElementById('lengthSelect').value;
-    const style = document.getElementById('styleSelect').value;
-    const color = document.getElementById('colorSelect').value;
+    const length = lengthSelect.value;
+    const style = styleSelect.value;
+    const color = colorSelect.value;
     
     // Validate that at least one option is selected
     if (!length && !style && !color) {
@@ -205,15 +221,28 @@ async function processImage() {
 }
 
 // Initialize the hairstyle preview on page load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     updateHairstylePreview();
     // Initially disable the button until a selection is made
     removeWatermarkBtn.disabled = true;
     removeWatermarkBtn.classList.add('disabled-btn');
+    
+    // Reset button click handler - make sure this is defined after the DOM is loaded
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            console.log('Reset button clicked');
+            window.location.reload();
+        });
+    } else {
+        console.error('Reset button not found in the DOM');
+    }
 });
 
 // Helper function to show error messages
 function showError(message) {
     errorMessage.textContent = message;
     errorMessage.style.display = 'block';
+    
+    // Scroll to the error message
+    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 } 

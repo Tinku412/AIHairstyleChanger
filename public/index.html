@@ -5,71 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Hairstyle AI</title>
     <link rel="stylesheet" href="styles.css">
-    </head>
+</head>
 <body>
-    <h1>Change Hairstyle AI</h1>
+    <header>
+        <h1>Change Hairstyle AI</h1>
+        <p class="subtitle">Transform your look with AI-powered hairstyle visualization. Upload your photo and see yourself with a new style in seconds.</p>
+    </header>
     
     <div class="container">
         <div class="upload-area" id="uploadArea">
-            <p>Drag & drop your image here or click to browse <br> <br>(Works best with well lit images in <i>.jpg</i> and <i>.png</i> format)</p>
-            <input type="file" id="fileInput" accept="image/*">
+            <div class="upload-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8A56FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+            </div>
+            <h2>Upload Your Photo</h2>
+            <p>Drag & drop your image here or click to browse</p>
+            <p class="upload-note">(Works best with well lit images in <i>.jpg</i> and <i>.png</i> format)</p>
+            <button class="browse-btn" id="browseBtn">Browse Files</button>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
         </div>
         
         <div class="example-images" id="exampleImages">
             <h2>Gallery</h2>
-            <p>See what our AI can do with these example hairstyle changes</p>
+            <p class="gallery-subtitle">See what our AI can do with these example hairstyle changes</p>
             
             <div class="example-grid">
                 <div class="example-pair">
                     <div class="example-image">
-                        <img src="../examples/original1.jpg" alt="Original hairstyle">
+                        <img src="examples/original1.jpg" alt="Original hairstyle">
                         <p>Original</p>
                     </div>
                     <div class="example-image">
-                        <img src="../examples/transformed1.png" alt="Transformed hairstyle">
+                        <img src="examples/transformed1.png" alt="Transformed hairstyle">
                         <p>Slick Back</p>
                     </div>
                 </div>
                 
                 <div class="example-pair">
                     <div class="example-image">
-                        <img src="../examples/original2.jpg" alt="Original hairstyle">
+                        <img src="examples/original2.jpg" alt="Original hairstyle">
                         <p>Original</p>
                     </div>
                     <div class="example-image">
-                        <img src="../examples/transformed2.png" alt="Transformed hairstyle">
+                        <img src="examples/transformed2.png" alt="Transformed hairstyle">
                         <p>Afro</p>
                     </div>
                 </div>
                 
                 <div class="example-pair">
                     <div class="example-image">
-                        <img src="../examples/original1.jpg" alt="Original hairstyle">
+                        <img src="examples/original1.jpg" alt="Original hairstyle">
                         <p>Original</p>
                     </div>
                     <div class="example-image">
-                        <img src="../examples/transformed3.png" alt="Transformed hairstyle">
+                        <img src="examples/transformed3.png" alt="Transformed hairstyle">
                         <p>Medium Caramel Wavy</p>
                     </div>
                 </div>
                 
                 <div class="example-pair">
                     <div class="example-image">
-                        <img src="../examples/original2.jpg" alt="Original hairstyle">
+                        <img src="examples/original2.jpg" alt="Original hairstyle">
                         <p>Original</p>
                     </div>
                     <div class="example-image">
-                        <img src="../examples/transformed4.png" alt="Transformed hairstyle">
-                        <p>Black blunt Bob</p>
+                        <img src="examples/transformed4.png" alt="Transformed hairstyle">
+                        <p>Black Blunt Bob</p>
                     </div>
                 </div>
+
                 <div class="example-pair">
                     <div class="example-image">
-                    <img src="../examples/original3.jpg" alt="Original hairstyle">
+                    <img src="examples/original3.jpg" alt="Original hairstyle">
                     <p>Original</p>
                 </div>
                 <div class="example-image">
-                    <img src="../examples/transformed7.jpg" alt="Transformed hairstyle">
+                    <img src="examples/transformed7.jpg" alt="Transformed hairstyle">
                     <p>Red Pixie</p>
                 </div>
                 
@@ -77,37 +91,35 @@
             </div>
             <div class="example-pair">
                 <div class="example-image">
-                    <img src="../examples/original4.jpg" alt="Original hairstyle">
+                    <img src="examples/original4.jpg" alt="Original hairstyle">
                     <p>Original</p>
                 </div>
                 <div class="example-image">
-                    <img src="../examples/transformed6.jpg" alt="Transformed hairstyle">
+                    <img src="examples/transformed6.jpg" alt="Transformed hairstyle">
                     <p>Short Red Wolf Cut</p>
                 </div>
             </div>
 
             <div class="example-pair">
                 <div class="example-image">
-                    <img src="../examples/original4.jpg" alt="Original hairstyle">
+                    <img src="examples/original4.jpg" alt="Original hairstyle">
                     <p>Original</p>
                 </div>
                 <div class="example-image">
-                    <img src="../examples/transformed8.jpg" alt="Transformed hairstyle">
+                    <img src="examples/transformed8.jpg" alt="Transformed hairstyle">
                     <p>Long, Red with bangs</p>
                 </div>
             </div>
             <div class="example-pair">
                 <div class="example-image">
-                    <img src="../examples/original5.jpg" alt="Original hairstyle">
+                    <img src="examples/original5.jpg" alt="Original hairstyle">
                     <p>Original</p>
                 </div>
                 <div class="example-image">
-                    <img src="../examples/transformed5.jpg" alt="Transformed hairstyle">
+                    <img src="examples/transformed5.jpg" alt="Transformed hairstyle">
                     <p>Long, black with bangs</p>
                 </div>
             </div>
-            
-            
 
             </div>
         </div>
@@ -170,8 +182,8 @@
                     <p id="hairstylePreview">Select at least one option</p>
                 </div>
             </div>
-            <div style="margin-top: 20px;">
-                <button id="removeWatermarkBtn" class="btn">Generate</button>
+            <div class="button-container">
+                <button id="removeWatermarkBtn" class="primary-btn">Generate</button>
             </div>
         </div>
         
@@ -190,12 +202,13 @@
             <div class="image-box">
                 <h3>New Hairstyle</h3>
                 <img id="processedImage">
-                <div style="text-align: center; padding: 10px; display: flex; justify-content: center; gap: 10px;">
-                    <button id="downloadBtn" class="btn download-btn">Download Image</button>
+                <div class="button-container">
+                    <button id="downloadBtn" class="secondary-btn">Download Image</button>
                     <div class="tooltip-container">
-                        <button id="tryAgainBtn" class="btn download-btn">Try Again</button>
+                        <button id="tryAgainBtn" class="secondary-btn">Try Again</button>
                         <span class="tooltip">Sometimes it takes a few attempts to get it right.</span>
                     </div>
+                    <button id="resetBtn" class="secondary-btn">Reset</button>
                 </div>
             </div>
         </div>
@@ -205,6 +218,21 @@
             <div id="analysisText" class="analysis-text"></div>
         </div>
     </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h2>Change Hairstyle AI</h2>
+            <p>Try our AI-powered hairstyle transformation tool today. Upload a photo and see yourself with a completely new look in seconds.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <span class="divider">|</span>
+                <a href="#">Terms of Service</a>
+                <span class="divider">|</span>
+                <a href="#">Contact</a>
+            </div>
+            <p class="copyright">© 2023 Change Hairstyle AI. All rights reserved.</p>
+        </div>
+    </footer>
     
     <script src="client.js"></script>
 </body>
